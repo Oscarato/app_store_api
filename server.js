@@ -13,7 +13,7 @@ app.use(cors())
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to Express API." });
 });
 
 require("./app/routes/customer.routes.js")(app);

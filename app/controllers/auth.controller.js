@@ -32,6 +32,10 @@ exports.login = (req, res) => {
 					const accessToken = jwt.sign({ email: user.email,  role: user.profile }, accessTokenSecret.accessTokenSecret);
 
 					res.json({
+						profile: {
+							name: user.name,
+							email: user.email
+						},
 						accessToken
 					});
 
@@ -40,7 +44,10 @@ exports.login = (req, res) => {
 				});
 				
 			} else {
-				res.send('Incorrect Username and/or Password!');
+				res.json({
+					reponse: false,
+					message: 'Incorrect Username and/or Password!'
+				});
 				res.end();
 			}			
 			
